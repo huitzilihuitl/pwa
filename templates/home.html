@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Página inicial</title>
+    <link rel="manifest" href="/manifest.json">
+    <meta name="theme-color" content="#3367D6"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        body {
+        background-color: #ffffff;
+        color: #000000;
+        font-family: sans-serif;
+        }
+
+        .container {
+        width: 100%;
+        margin: 0 auto;
+        }
+
+        .header {
+        background-color: #000000;
+        color: #ffffff;
+        padding: 20px;
+        height: 100px;
+        }
+
+        .logo {
+        float: left;
+        }
+
+        .nav {
+        float: right;
+        font-size: 10px;
+        }
+
+        .nav a {
+        text-decoration: none;
+        color: #ffffff;
+        font-size: 1.5em;
+        }
+
+        .content {
+        padding: 20px;
+        }
+
+        .footer {
+        background-color: #000000;
+        color: #ffffff;
+        padding: 20px;
+        }
+
+        table {
+            margin: 10%;
+            width: 80%;
+        }
+
+        th {
+            background-color: #000000;
+            color: #ffffff;
+        }
+        
+        th, td {
+        width: auto;
+        text-align: center;
+        }
+
+        @media screen and (max-width: 576px) {
+        /* Oculta las columnas de la tabla cuando el ancho de la ventana gráfica sea menor o igual a 576px */
+        th:nth-child(3), td:nth-child(3) {
+        display: none;
+        }
+        }
+
+        @media screen and (max-width: 480px) {
+        /* Hace que la tabla sea desplazable horizontalmente cuando el ancho de la ventana gráfica sea menor o igual a 480px */
+        table {
+        overflow-x: auto;
+        }
+        }
+
+        .logo_bank {
+            width: 24px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+        <div class="logo">
+            <img src="../static/icon.png" alt="Logotipo" width="128px">
+        </div>
+        <nav class="nav">
+            <a href="#">Cerrar Sesion</a>
+        </nav>
+        </header>
+        <main class="content">
+            <table>
+                <tr>
+                    <th>Logo</th>
+                    <th>ID</th>
+                    <th>Institución</th>
+                </tr>
+                {% for banco in bancos %}
+                    <tr>
+                        <td>
+                            <img src="{{ banco['icon_logo'] }}" class="logo_bank"/>
+                        </td>
+                        <td>{{ banco['id'] }}</td>
+                        <td>{{ banco['display_name'] }}</td>
+                    </tr>
+                {% endfor %}
+            </table>
+        </main>
+        <footer class="footer">
+        Copyright &copy; 2023
+        </footer>
+    </div>
+</body>
+</html>

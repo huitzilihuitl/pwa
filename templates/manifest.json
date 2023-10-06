@@ -1,0 +1,17 @@
+{
+  "short_name": "BelvoTest",
+  "name": "BelvoTest: Do I need an umbrella?",
+  "icons": [
+    {
+      "src": "../static/icon.png",
+      "type": "image/png",
+      "sizes": "512x512",
+      "purpose": "any maskable"
+    }
+  ],
+  "start_url": "http://127.0.0.1:5000/",
+  "background_color": "#3367D6",
+  "display": "standalone",
+  "scope": "/",
+  "theme_color": "#3367D6"
+}
